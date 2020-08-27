@@ -1,4 +1,5 @@
 ﻿using Order.Processing.System.Models;
+using Order.Processing.System.Models.Common;
 using System;
 using System.Collections.Generic;
 using System.Text;

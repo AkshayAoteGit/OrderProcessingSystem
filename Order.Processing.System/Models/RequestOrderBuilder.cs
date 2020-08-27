@@ -12,17 +12,25 @@ namespace Order.Processing.System.Models
     {
         private AccountProductCategory _accountProductCategory;
         private bool _addAddtionalSevice = false;
+        private readonly ISlipGenration _slipGenration;
+        private readonly INotificationService _notificationService;
+
+        public RequestOrderBuilder(ISlipGenration slipGenration, INotificationService notificationService)
+        {
+            _slipGenration = slipGenration;
+            _notificationService = notificationService;
+        }
 
         public IPayementPrcocessorSercvice Build()
         {
             switch (_accountProductCategory)
             {
                 case AccountProductCategory.PhysicalProduct:
-                    return (_addAddtionalSevice ?(IPayementPrcocessorSercvice) new PhysicalProductDecorator(): new PhysicalProductPaymentProcessor());
+                    return (_addAddtionalSevice ?(IPayementPrcocessorSercvice) new PhysicalProductDecorator(_slipGenration, _notificationService) : new PhysicalProductPaymentProcessor(_slipGenration,_notificationService));
                 case AccountProductCategory.MemberShip:
-                    return new MembershipPaymentProcessor();
+                    return new MembershipPaymentProcessor(_slipGenration, _notificationService);
                 case AccountProductCategory.ELearning:
-                    return (_addAddtionalSevice ? (IPayementPrcocessorSercvice)new ELearningDecorator() : new ELearningPaymentProcessor());
+                    return (_addAddtionalSevice ? (IPayementPrcocessorSercvice)new ELearningDecorator(_slipGenration, _notificationService) : new ELearningPaymentProcessor(_slipGenration, _notificationService));
             }
             return null;
         }

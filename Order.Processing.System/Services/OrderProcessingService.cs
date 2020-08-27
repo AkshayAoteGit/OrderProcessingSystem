@@ -1,6 +1,7 @@
 ﻿using Order.Processing.System.Interfaces.Service;
 using Order.Processing.System.Models;
 using Order.Processing.System.Models.Builders;
+using Order.Processing.System.Models.Common;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,8 +16,9 @@ namespace Order.Processing.System.Services
 
         public void ProcessPayment()
         {
-            var requestOrderObj = GetRequestOrder(Enums.AccountProductCategory.ELearning,true);
-            var orderProcessorService = new RequestOrderBuilder()
+
+            var requestOrderObj = GetRequestOrder(Enums.AccountProductCategory.ELearning, true);
+            var orderProcessorService = new RequestOrderBuilder(new SlipGenration(),new NotificationService())
                                         .WithProductCategory(Enums.AccountProductCategory.ELearning)
                                         .WithAdditionalSevice()
                                         .Build();

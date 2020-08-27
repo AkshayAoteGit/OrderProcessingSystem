@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Order.Processing.System.Models
+namespace Order.Processing.System.Models.Common
 {
     public class OrderDetail
     {

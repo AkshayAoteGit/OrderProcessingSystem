@@ -1,6 +1,7 @@
 ﻿using Order.Processing.System.Interfaces.Service;
 using Order.Processing.System.Models;
 using Order.Processing.System.Models.Builders;
+using Order.Processing.System.Models.Common;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,21 +10,16 @@ namespace Order.Processing.System.Services
 {
     public abstract class PaymentProcessorService : IPayementPrcocessorSercvice
     {
+        private readonly ISlipGenration _slipGenration;
+        private readonly INotificationService _notificationService;
+        public PaymentProcessorService(ISlipGenration slipGenration, INotificationService notificationService)
+        {
+            _slipGenration = slipGenration;
+            _notificationService = notificationService;
+        }
         public void GenerateSlip(OrderDetail details)
         {
-            Console.WriteLine("----------SLIP DETAIL-------------------");
-            Console.WriteLine("Slip Id :" + details.Id);
-            Console.WriteLine("Product Category :"+details.ProductCategory);
-            Console.WriteLine("Holder Name:" + details.SlipHolderName);
-            Console.WriteLine("Type :" + details.Type);
-            Console.WriteLine("-----------------------------------------");
-            Console.WriteLine();
-            Console.WriteLine("------------AIDS-------------------------");
-            if (!string.IsNullOrEmpty(details.Type))
-            {
-                Console.WriteLine("Aids Provided:" + details.Aid);
-            }
-            
+            _slipGenration.GenerateSlip(details);  
         }
 
         public virtual void ProcessOrder(OrderDetail details)
@@ -33,7 +29,9 @@ namespace Order.Processing.System.Services
 
         public void SendMail()
         {
-            Console.WriteLine("Email Send");
+            _notificationService.Sendmail();
+            
+
         }
         
 
