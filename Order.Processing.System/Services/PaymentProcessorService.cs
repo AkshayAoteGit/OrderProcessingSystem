@@ -10,9 +10,9 @@ namespace Order.Processing.System.Services
 {
     public abstract class PaymentProcessorService : IPayementPrcocessorSercvice
     {
-        private readonly ISlipGenration _slipGenration;
+        private readonly ISlipGenrator _slipGenration;
         private readonly INotificationService _notificationService;
-        public PaymentProcessorService(ISlipGenration slipGenration, INotificationService notificationService)
+        public PaymentProcessorService(ISlipGenrator slipGenration, INotificationService notificationService)
         {
             _slipGenration = slipGenration;
             _notificationService = notificationService;

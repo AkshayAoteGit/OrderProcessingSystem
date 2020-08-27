@@ -10,7 +10,7 @@ namespace Order.Processing.System.Services.Category
 {
     public class MembershipPaymentProcessor : PaymentProcessorService
     {
-        public MembershipPaymentProcessor(ISlipGenration slipGenration, INotificationService notificationService) : base(slipGenration, notificationService)
+        public MembershipPaymentProcessor(ISlipGenrator slipGenration, INotificationService notificationService) : base(slipGenration, notificationService)
         {
 
         }

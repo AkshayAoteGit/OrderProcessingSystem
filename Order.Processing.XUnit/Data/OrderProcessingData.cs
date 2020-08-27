@@ -1,47 +1,29 @@
-﻿using Order.Processing.System.Interfaces.Service;
-using Order.Processing.System.Models;
+﻿using Order.Processing.System.Enums;
 using Order.Processing.System.Models.Builders;
 using Order.Processing.System.Models.Common;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Order.Processing.System.Services
+namespace Order.Processing.XUnit.Data
 {
-    public class OrderProcessingService
+    public class OrderProcessingData
     {
-        public OrderProcessingService()
-        {
-        }
-
-        public void ProcessPayment()
-        {
-
-            var requestOrderObj = GetRequestOrder(Enums.AccountProductCategory.ELearning, true);
-            var orderProcessorService = new RequestOrderBuilder(new SlipGenratorService(),new NotificationService())
-                                        .WithProductCategory(Enums.AccountProductCategory.ELearning)
-                                        .WithAdditionalSevice()
-                                        .Build();
-            orderProcessorService.ProcessOrder(requestOrderObj.Details);
-        }
-        private static RequestOrder GetRequestOrder(Enums.AccountProductCategory accountProductCategory,bool isAidProvided)
+        public static RequestOrder GetRequestOrder(AccountProductCategory accountProductCategory, bool isAidProvided)
         {
             var orderDetail = new OrderDetail();
             orderDetail.Id = 1001;
 
             switch (accountProductCategory)
             {
-                case Enums.AccountProductCategory.PhysicalProduct:
+                case AccountProductCategory.PhysicalProduct:
                     orderDetail.ProductCategory = "Physical Product";
                     orderDetail.SlipHolderName = "Shipping Department/Royal Department";
                     orderDetail.Type = "Book";
                     break;
-                case Enums.AccountProductCategory.MemberShip:
+                case AccountProductCategory.MemberShip:
                     orderDetail.ProductCategory = "MemberShip";
                     orderDetail.SlipHolderName = "Account";
                     orderDetail.Type = "Activation/Upgradation";
                     break;
-                case Enums.AccountProductCategory.ELearning:
+                case AccountProductCategory.ELearning:
                     orderDetail.ProductCategory = "ELearning";
                     orderDetail.SlipHolderName = "Learning";
                     orderDetail.Type = "Activation/Upgradation";
@@ -56,6 +38,5 @@ namespace Order.Processing.System.Services
                 Details = orderDetail
             };
         }
-
     }
 }

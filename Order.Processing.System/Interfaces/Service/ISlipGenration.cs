@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Order.Processing.System.Interfaces.Service
 {
-    public interface ISlipGenration
+    public interface ISlipGenrator
     {
         OrderDetail GenerateSlip(OrderDetail orderDetail);
     }

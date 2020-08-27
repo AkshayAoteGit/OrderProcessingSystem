@@ -7,7 +7,7 @@ namespace Order.Processing.System.Services.Decorator
 {
     public abstract class PaymentProcessAddOnDecorator: PaymentProcessorService
     {
-        public PaymentProcessAddOnDecorator(ISlipGenration slipGenration, INotificationService notificationService) : base(slipGenration, notificationService)
+        public PaymentProcessAddOnDecorator(ISlipGenrator slipGenration, INotificationService notificationService) : base(slipGenration, notificationService)
         {
 
         }

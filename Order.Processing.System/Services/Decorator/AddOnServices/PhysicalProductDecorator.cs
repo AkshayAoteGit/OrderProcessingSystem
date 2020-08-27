@@ -11,7 +11,7 @@ namespace Order.Processing.System.Services.Decorator.AddOnServices
     public class PhysicalProductDecorator : PaymentProcessAddOnDecorator
     {
 
-        public PhysicalProductDecorator(ISlipGenration slipGenration, INotificationService notificationService) : base(slipGenration, notificationService)
+        public PhysicalProductDecorator(ISlipGenrator slipGenration, INotificationService notificationService) : base(slipGenration, notificationService)
         {
 
         }

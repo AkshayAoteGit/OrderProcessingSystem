@@ -10,7 +10,7 @@ namespace Order.Processing.System.Services.Category
 {
     public class PhysicalProductPaymentProcessor : PaymentProcessorService
     {
-        public PhysicalProductPaymentProcessor(ISlipGenration slipGenration, INotificationService notificationService):base(slipGenration,notificationService)
+        public PhysicalProductPaymentProcessor(ISlipGenrator slipGenration, INotificationService notificationService):base(slipGenration,notificationService)
         {
 
         }

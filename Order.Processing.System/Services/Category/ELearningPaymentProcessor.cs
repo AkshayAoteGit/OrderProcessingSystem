@@ -11,7 +11,7 @@ namespace Order.Processing.System.Services.Category
     public class ELearningPaymentProcessor : PaymentProcessorService
     {
 
-        public ELearningPaymentProcessor(ISlipGenration slipGenration, INotificationService notificationService) : base(slipGenration, notificationService)
+        public ELearningPaymentProcessor(ISlipGenrator slipGenration, INotificationService notificationService) : base(slipGenration, notificationService)
         {
 
         }

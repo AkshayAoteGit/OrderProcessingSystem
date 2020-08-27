@@ -12,10 +12,10 @@ namespace Order.Processing.System.Models
     {
         private AccountProductCategory _accountProductCategory;
         private bool _addAddtionalSevice = false;
-        private readonly ISlipGenration _slipGenration;
+        private readonly ISlipGenrator _slipGenration;
         private readonly INotificationService _notificationService;
 
-        public RequestOrderBuilder(ISlipGenration slipGenration, INotificationService notificationService)
+        public RequestOrderBuilder(ISlipGenrator slipGenration, INotificationService notificationService)
         {
             _slipGenration = slipGenration;
             _notificationService = notificationService;

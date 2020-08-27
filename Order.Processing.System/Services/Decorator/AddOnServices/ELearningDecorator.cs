@@ -10,7 +10,7 @@ namespace Order.Processing.System.Services.Decorator.AddOnServices
 {
     public class ELearningDecorator: PaymentProcessAddOnDecorator
     {
-        public ELearningDecorator(ISlipGenration slipGenration, INotificationService notificationService) : base(slipGenration, notificationService)
+        public ELearningDecorator(ISlipGenrator slipGenration, INotificationService notificationService) : base(slipGenration, notificationService)
         {
 
         }

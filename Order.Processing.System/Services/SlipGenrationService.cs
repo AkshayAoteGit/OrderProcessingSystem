@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Order.Processing.System.Services
 {
-    public class SlipGenration : ISlipGenration
+    public class SlipGenratorService : ISlipGenrator
     {
         
         public OrderDetail GenerateSlip(OrderDetail details)
