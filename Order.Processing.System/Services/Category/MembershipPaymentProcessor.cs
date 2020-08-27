@@ -8,7 +8,8 @@ namespace Order.Processing.System.Services.Category
     {
         protected override void ProcessOrder()
         {
-            throw new NotImplementedException();
+            GenerateSlip();
+            SendMail();
         }
     }
 }
