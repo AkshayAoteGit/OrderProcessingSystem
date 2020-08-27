@@ -16,7 +16,7 @@ namespace Order.Processing.System.Services
 
         public void ProcessPayment()
         {
-
+            //you can change the enum and play with the data
             var requestOrderObj = GetRequestOrder(Enums.AccountProductCategory.ELearning, true);
             var orderProcessorService = new RequestOrderBuilder(new SlipGenratorService(),new NotificationService())
                                         .WithProductCategory(Enums.AccountProductCategory.ELearning)
