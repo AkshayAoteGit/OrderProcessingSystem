@@ -7,8 +7,6 @@
 
   <ItemGroup>
     <Folder Include="Services\Factory\" />
-    <Folder Include="Interfaces\Service\" />
-    <Folder Include="Services\" />
   </ItemGroup>
 
   <ItemGroup>
