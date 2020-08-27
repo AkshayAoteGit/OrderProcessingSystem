@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Order.Processing.System.Models;
+using Order.Processing.System.Models.Builders;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,13 +8,12 @@ namespace Order.Processing.System.Services.Decorator.AddOnServices
 {
     public class ELearningDecorator: PaymentProcessAddOnDecorator
     {
-        public ELearningDecorator(PaymentProcessorService paymentProcessorService) : base(paymentProcessorService)
-        { }
 
-        protected override void ProcessPayment()
+        public override void ProcessOrder(OrderDetail details)
         {
-            _paymentProcessorService.GenerateSlip();
-            Console.WriteLine("Added Free Aid to slip");
+            GenerateSlip(details);
+            Console.WriteLine("With Aid");
         }
+
     }
 }

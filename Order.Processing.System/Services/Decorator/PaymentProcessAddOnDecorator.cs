@@ -4,13 +4,8 @@ using System.Text;
 
 namespace Order.Processing.System.Services.Decorator
 {
-    public abstract class PaymentProcessAddOnDecorator
+    public abstract class PaymentProcessAddOnDecorator: PaymentProcessorService
     {
-        protected readonly PaymentProcessorService _paymentProcessorService;
-        protected abstract void ProcessPayment();
-        public PaymentProcessAddOnDecorator(PaymentProcessorService paymentProcessorService)
-        {
-            _paymentProcessorService = paymentProcessorService;
-        }
+        
     }
 }

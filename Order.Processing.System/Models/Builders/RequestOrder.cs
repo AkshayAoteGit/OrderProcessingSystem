@@ -4,14 +4,9 @@ using System.Text;
 
 namespace Order.Processing.System.Models.Builders
 {
-    public class RequestOrderBuilder
+    public class RequestOrder
     {
-        public RequestOrderBuilder()
-        {
-
-        }
-
-
-
+        public OrderDetail Details { get; set; }
+        
     }
 }

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Order.Processing.System.Models;
+using Order.Processing.System.Models.Builders;
+using Order.Processing.System.Services;
+using System;
 
 namespace Order.Processing.System
 {
@@ -6,7 +9,13 @@ namespace Order.Processing.System
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+
+            var processOrder = new OrderProcessingService();
+            processOrder.ProcessPayment();
+            Console.ReadKey();
+
+
         }
+     
     }
 }

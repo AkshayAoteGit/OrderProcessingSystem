@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Order.Processing.System.Models
 {
-    public class SlipDetail
+    public class OrderDetail
     {
         public int Id { get; set; }
         public string SlipHolderName { get; set; }

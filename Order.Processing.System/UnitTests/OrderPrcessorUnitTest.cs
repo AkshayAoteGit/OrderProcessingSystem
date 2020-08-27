@@ -32,6 +32,5 @@ namespace Order.Processing.System.UnitTests
 
 
         }
-        }
     }
 }
